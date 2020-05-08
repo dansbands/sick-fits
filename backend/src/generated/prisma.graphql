@@ -1,5 +1,5 @@
 # source: https://us1.prisma.sh/dan-odea/sick-fits/dev
-# timestamp: Wed May 06 2020 21:03:39 GMT-0400 (Eastern Daylight Time)
+# timestamp: Thu May 07 2020 19:32:31 GMT-0400 (Eastern Daylight Time)
 
 type AggregateItem {
   count: Int!
@@ -503,6 +503,7 @@ type User implements Node {
   name: String!
   email: String!
   password: String
+  resetToken: String
   resetTokenExpiry: Float
   permissions: [Permission!]!
 }
@@ -522,6 +523,7 @@ input UserCreateInput {
   name: String!
   email: String!
   password: String
+  resetToken: String
   resetTokenExpiry: Float
   permissions: UserCreatepermissionsInput
 }
@@ -548,6 +550,8 @@ enum UserOrderByInput {
   email_DESC
   password_ASC
   password_DESC
+  resetToken_ASC
+  resetToken_DESC
   resetTokenExpiry_ASC
   resetTokenExpiry_DESC
 }
@@ -557,6 +561,7 @@ type UserPreviousValues {
   name: String!
   email: String!
   password: String
+  resetToken: String
   resetTokenExpiry: Float
   permissions: [Permission!]!
 }
@@ -604,6 +609,7 @@ input UserUpdateInput {
   name: String
   email: String
   password: String
+  resetToken: String
   resetTokenExpiry: Float
   permissions: UserUpdatepermissionsInput
 }
@@ -612,6 +618,7 @@ input UserUpdateManyMutationInput {
   name: String
   email: String
   password: String
+  resetToken: String
   resetTokenExpiry: Float
   permissions: UserUpdatepermissionsInput
 }
@@ -789,6 +796,46 @@ input UserWhereInput {
 
   """All values not ending with the given string."""
   password_not_ends_with: String
+  resetToken: String
+
+  """All values that are not equal to given value."""
+  resetToken_not: String
+
+  """All values that are contained in given list."""
+  resetToken_in: [String!]
+
+  """All values that are not contained in given list."""
+  resetToken_not_in: [String!]
+
+  """All values less than the given value."""
+  resetToken_lt: String
+
+  """All values less than or equal the given value."""
+  resetToken_lte: String
+
+  """All values greater than the given value."""
+  resetToken_gt: String
+
+  """All values greater than or equal the given value."""
+  resetToken_gte: String
+
+  """All values containing the given string."""
+  resetToken_contains: String
+
+  """All values not containing the given string."""
+  resetToken_not_contains: String
+
+  """All values starting with the given string."""
+  resetToken_starts_with: String
+
+  """All values not starting with the given string."""
+  resetToken_not_starts_with: String
+
+  """All values ending with the given string."""
+  resetToken_ends_with: String
+
+  """All values not ending with the given string."""
+  resetToken_not_ends_with: String
   resetTokenExpiry: Float
 
   """All values that are not equal to given value."""
