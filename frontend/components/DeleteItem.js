@@ -30,7 +30,9 @@ class DeleteItem extends React.Component {
           <button
             onClick={() => {
               if (confirm("are you shure you want to delete this item?")) {
-                deleteItem();
+                deleteItem().catch(err => {
+                  alert(err.message);
+                })
               }
             }}
           >
