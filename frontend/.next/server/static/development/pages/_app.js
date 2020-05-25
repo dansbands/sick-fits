@@ -958,7 +958,7 @@ var theme = {
   black: '#393939',
   grey: '#3A3A3A',
   lightgrey: '#E1E1E1',
-  offwhite: '#EDEDED',
+  offWhite: '#EDEDED',
   maxWidth: '1000px',
   bs: '0 12px 24px 0 rgba(0,0,0,0.09)'
 };
@@ -1628,10 +1628,11 @@ function (_React$Component) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                nprogress__WEBPACK_IMPORTED_MODULE_5___default.a.start();
                 console.log("OnTokenCalled");
                 console.log(res); // Manually call the mutation once we have the stripe token
 
-                _context.next = 4;
+                _context.next = 5;
                 return createOrder({
                   variables: {
                     token: res.id
@@ -1640,11 +1641,16 @@ function (_React$Component) {
                   alert(err.message);
                 });
 
-              case 4:
+              case 5:
                 order = _context.sent;
-                console.log(order);
+                next_router__WEBPACK_IMPORTED_MODULE_4___default.a.push({
+                  pathname: '/order',
+                  query: {
+                    id: order.data.createOrder.id
+                  }
+                });
 
-              case 6:
+              case 7:
               case "end":
                 return _context.stop();
             }
@@ -1668,7 +1674,7 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_User__WEBPACK_IMPORTED_MODULE_10__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 46
+          lineNumber: 50
         },
         __self: this
       }, function (_ref2) {
@@ -1680,7 +1686,7 @@ function (_React$Component) {
           }],
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 48
+            lineNumber: 52
           },
           __self: this
         }, function (createOrder) {
@@ -1688,7 +1694,7 @@ function (_React$Component) {
             amount: Object(_lib_calcTotalPrice__WEBPACK_IMPORTED_MODULE_8__["default"])(me.cart),
             name: "Sick Fits",
             description: "Order of ".concat(totalItems(me.cart), " items"),
-            image: me.cart.length && me.cart[0].item && me.cart[0].item.image,
+            image: !!me.cart.length && me.cart[0].item && me.cart[0].item.image,
             stripeKey: "pk_test_PxrxFbL76fktR5CUDYfkUnXj00c4WlI8Qe",
             currency: "USD",
             email: me.email,
@@ -1697,7 +1703,7 @@ function (_React$Component) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 53
+              lineNumber: 57
             },
             __self: this
           }, _this2.props.children);
